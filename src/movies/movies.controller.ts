@@ -11,6 +11,7 @@ import {
 import { MoviesService } from './movies.service';
 import { Movie } from './entities/movie.entity';
 import { CreateMovieDto } from './dto/create-movie.dto';
+import { updateMovieDto } from './dto/update-movie.dto';
 
 //()안에 있는 값이 url의 엔트리포인트를 컨트롤함
 //()안에 "movies"가 쓰여있으면 url은 /movies가 된다.
@@ -44,7 +45,7 @@ export class MoviesController {
   }
 
   @Patch(':id')
-  patch(@Param('id') id: number, @Body() updateData: CreateMovieDto) {
+  patch(@Param('id') id: number, @Body() updateData: updateMovieDto) {
     return this.moviesService.update(id, updateData);
   }
 }
